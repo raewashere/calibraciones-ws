@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -33,7 +33,7 @@ public class LaboratorioCalibracionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getLaboratorioById(@RequestParam Long id) {
+    public ResponseEntity<?> getLaboratorioById(@PathVariable Long id) {
         LaboratorioCalibracion laboratorio = laboratorioCalibracionService.findById(id);
         if (laboratorio != null) {
             return new ResponseEntity<>(laboratorio, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class LaboratorioCalibracionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteLaboratorio(@RequestParam Long id) {
+    public ResponseEntity<?> deleteLaboratorio(@PathVariable Long id) {
         LaboratorioCalibracion laboratorio = laboratorioCalibracionService.findById(id);
         if (laboratorio != null) {
             laboratorioCalibracionService.deleteById(id);

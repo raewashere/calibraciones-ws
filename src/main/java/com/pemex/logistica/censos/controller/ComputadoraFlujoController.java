@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/computadora_flujo")
@@ -33,7 +33,7 @@ public class ComputadoraFlujoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getComputadoraFlujoById(@RequestParam String id) {
+    public ResponseEntity<?> getComputadoraFlujoById(@PathVariable String id) {
         ComputadoraFlujo computadoraFlujo = computadoraFlujoService.findById(id);
         if (computadoraFlujo != null) {
             return new ResponseEntity<>(computadoraFlujo, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class ComputadoraFlujoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteComputadoraFlujo(@RequestParam String id) {
+    public ResponseEntity<?> deleteComputadoraFlujo(@PathVariable String id) {
         ComputadoraFlujo computadoraFlujo = computadoraFlujoService.findById(id);
         if (computadoraFlujo != null) {
             computadoraFlujoService.deleteById(id);

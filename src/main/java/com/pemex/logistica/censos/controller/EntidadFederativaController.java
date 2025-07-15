@@ -1,7 +1,7 @@
 package com.pemex.logistica.censos.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import com.pemex.logistica.censos.entity.EntidadFederativa;
 import com.pemex.logistica.censos.service.EntidadFederativaService;
@@ -35,7 +35,7 @@ public class EntidadFederativaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getEntidadFederativaById(@RequestParam Long id) {
+    public ResponseEntity<?> getEntidadFederativaById(@PathVariable Long id) {
         EntidadFederativa entidad = entidadFederativaService.findById(id);
         if (entidad != null) {
             return new ResponseEntity<>(entidad, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class EntidadFederativaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteEntidadFederativa(@RequestParam Long id) {
+    public ResponseEntity<?> deleteEntidadFederativa(@PathVariable Long id) {
         EntidadFederativa entidadFederativa = entidadFederativaService.findById(id);
 
         if (entidadFederativa != null) {

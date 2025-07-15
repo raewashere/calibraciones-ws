@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -33,7 +33,7 @@ public class GerenciaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getGerenciaById(@RequestParam Long id) {
+    public ResponseEntity<?> getGerenciaById(@PathVariable Long id) {
         Gerencia gerencia = gerenciaService.findById(id);
         if (gerencia != null) {
             return new ResponseEntity<>(gerencia, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class GerenciaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteGerencia(@RequestParam Long id) {
+    public ResponseEntity<?> deleteGerencia(@PathVariable Long id) {
         Gerencia gerencia = gerenciaService.findById(id);
         if (gerencia != null) {
             gerenciaService.deleteById(id);

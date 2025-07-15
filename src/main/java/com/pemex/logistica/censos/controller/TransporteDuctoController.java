@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -34,7 +34,7 @@ public class TransporteDuctoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getTransporteDuctoById(@RequestParam Long id) {
+    public ResponseEntity<?> getTransporteDuctoById(@PathVariable Long id) {
         TransporteDucto transporteDucto = transporteDuctoService.findById(id);
         if (transporteDucto != null) {
             return new ResponseEntity<>(transporteDucto, HttpStatus.OK);
@@ -54,7 +54,7 @@ public class TransporteDuctoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteTransporteDucto(@RequestParam Long id) {
+    public ResponseEntity<?> deleteTransporteDucto(@PathVariable Long id) {
         TransporteDucto transporteDucto = transporteDuctoService.findById(id);
         if (transporteDucto != null) {
             transporteDuctoService.deleteById(id);

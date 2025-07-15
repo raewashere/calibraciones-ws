@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -35,7 +35,7 @@ public class EquipoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getEquipoById(@RequestParam String id) {
+    public ResponseEntity<?> getEquipoById(@PathVariable String id) {
         Equipo equipo = equipoService.findById(id);
         if (equipo != null) {
             return new ResponseEntity<>(equipo, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class EquipoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteEquipo(@RequestParam String id) {
+    public ResponseEntity<?> deleteEquipo(@PathVariable String id) {
         Equipo equipo = equipoService.findById(id);
         if (equipo != null) {
             equipoService.deleteById(id);

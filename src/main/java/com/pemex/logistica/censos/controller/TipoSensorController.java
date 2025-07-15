@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -35,7 +35,7 @@ public class TipoSensorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getTipoSensorById(@RequestParam Long id) {
+    public ResponseEntity<?> getTipoSensorById(@PathVariable Long id) {
         TipoSensor tipoSensor = tipoSensorService.findById(id);
         if (tipoSensor != null) {
             return new ResponseEntity<>(tipoSensor, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class TipoSensorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteTipoSensor(@RequestParam Long id) {
+    public ResponseEntity<?> deleteTipoSensor(@PathVariable Long id) {
         TipoSensor tipoSensor = tipoSensorService.findById(id);
         if (tipoSensor != null) {
             tipoSensorService.deleteById(id);

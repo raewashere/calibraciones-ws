@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
@@ -33,7 +33,7 @@ public class CalibracionEquipoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getCalibracionById(@RequestParam Long id) {
+    public ResponseEntity<?> getCalibracionById(@PathVariable Long id) {
         CalibracionEquipo calibracion = calibracionEquipoService.findById(id);
         if (calibracion != null) {
             return new ResponseEntity<>(calibracion, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class CalibracionEquipoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCalibracion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteCalibracion(@PathVariable Long id) {
         CalibracionEquipo calibracion = calibracionEquipoService.findById(id);
         if (calibracion != null) {
             calibracionEquipoService.deleteById(id);

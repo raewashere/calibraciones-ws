@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -41,7 +41,7 @@ public class DireccionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getDireccionById(@RequestParam Long id) {
+    public ResponseEntity<?> getDireccionById(@PathVariable Long id) {
 
         Direccion direccion = direccionService.findById(id);
         if (direccion != null) {
@@ -62,7 +62,7 @@ public class DireccionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteDireccion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteDireccion(@PathVariable Long id) {
         Direccion direccion = direccionService.findById(id);
         if (direccion != null) {
             direccionService.deleteById(id);
