@@ -24,7 +24,7 @@ public class LaboratorioCalibracionController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllLaboratorios() {
+    public ResponseEntity<?> getAllLaboratorios() {
         List<LaboratorioCalibracion> laboratorios = laboratorioCalibracionService.findAll();
         if (laboratorios.isEmpty()) {
             return new ResponseEntity<>("No existen laboratorios de calibración", HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class LaboratorioCalibracionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getLaboratorioById(@RequestParam Long id) {
+    public ResponseEntity<?> getLaboratorioById(@RequestParam Long id) {
         LaboratorioCalibracion laboratorio = laboratorioCalibracionService.findById(id);
         if (laboratorio != null) {
             return new ResponseEntity<>(laboratorio, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class LaboratorioCalibracionController {
     }
 
     @PostMapping
-    public ResponseEntity saveLaboratorio(@RequestBody LaboratorioCalibracion laboratorio) {
+    public ResponseEntity<?> saveLaboratorio(@RequestBody LaboratorioCalibracion laboratorio) {
         LaboratorioCalibracion savedLaboratorio = laboratorioCalibracionService.save(laboratorio);
         if (savedLaboratorio != null) {
             return new ResponseEntity<>(savedLaboratorio, HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class LaboratorioCalibracionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteLaboratorio(@RequestParam Long id) {
+    public ResponseEntity<?> deleteLaboratorio(@RequestParam Long id) {
         LaboratorioCalibracion laboratorio = laboratorioCalibracionService.findById(id);
         if (laboratorio != null) {
             laboratorioCalibracionService.deleteById(id);

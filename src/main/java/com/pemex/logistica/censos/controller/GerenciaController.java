@@ -24,7 +24,7 @@ public class GerenciaController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllGerencias() {
+    public ResponseEntity<?> getAllGerencias() {
         List<Gerencia> gerencias = gerenciaService.findAll();
         if (gerencias.isEmpty()) {
             return new ResponseEntity<>("No existen gerencias", HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class GerenciaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getGerenciaById(@RequestParam Long id) {
+    public ResponseEntity<?> getGerenciaById(@RequestParam Long id) {
         Gerencia gerencia = gerenciaService.findById(id);
         if (gerencia != null) {
             return new ResponseEntity<>(gerencia, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class GerenciaController {
     }
 
     @PostMapping
-    public ResponseEntity saveGerencia(@RequestBody Gerencia gerencia) {
+    public ResponseEntity<?> saveGerencia(@RequestBody Gerencia gerencia) {
         Gerencia savedGerencia = gerenciaService.save(gerencia);
         if (savedGerencia != null) {
             return new ResponseEntity<>(savedGerencia, HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class GerenciaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteGerencia(@RequestParam Long id) {
+    public ResponseEntity<?> deleteGerencia(@RequestParam Long id) {
         Gerencia gerencia = gerenciaService.findById(id);
         if (gerencia != null) {
             gerenciaService.deleteById(id);

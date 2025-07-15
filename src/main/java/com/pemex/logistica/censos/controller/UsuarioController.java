@@ -24,7 +24,7 @@ public class UsuarioController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllUsuarios() {
+    public ResponseEntity<?> getAllUsuarios() {
         List<Usuario> usuarios = usuarioService.findAll();
         if (usuarios.isEmpty()) {
             return new ResponseEntity<>("No existen usuarios", HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getUsuarioById(@RequestParam Long id) {
+    public ResponseEntity<?> getUsuarioById(@RequestParam Long id) {
         Usuario usuario = usuarioService.findById(id);
         if (usuario != null) {
             return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity saveUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario) {
         Usuario savedUsuario = usuarioService.save(usuario);
         if (savedUsuario != null) {
             return new ResponseEntity<>(savedUsuario, HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteUsuario(@RequestParam Long id) {
+    public ResponseEntity<?> deleteUsuario(@RequestParam Long id) {
         Usuario usuario = usuarioService.findById(id);
         if (usuario != null) {
             usuarioService.deleteById(id);

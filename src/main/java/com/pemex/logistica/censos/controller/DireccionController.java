@@ -30,7 +30,7 @@ public class DireccionController {
     }
 
     @GetMapping
-    public ResponseEntity getAllDirecciones() {
+    public ResponseEntity<?> getAllDirecciones() {
 
         List<Direccion> direcciones = direccionService.findAll();
         if (direcciones.isEmpty()) {
@@ -41,7 +41,7 @@ public class DireccionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getDireccionById(@RequestParam Long id) {
+    public ResponseEntity<?> getDireccionById(@RequestParam Long id) {
 
         Direccion direccion = direccionService.findById(id);
         if (direccion != null) {
@@ -52,7 +52,7 @@ public class DireccionController {
     }
 
     @PostMapping
-    public ResponseEntity saveDireccion(@RequestBody Direccion direccion) {
+    public ResponseEntity<?> saveDireccion(@RequestBody Direccion direccion) {
         Direccion savedDireccion = direccionService.save(direccion);
         if (savedDireccion != null) {
             return new ResponseEntity<>(savedDireccion, HttpStatus.CREATED);
@@ -62,7 +62,7 @@ public class DireccionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteDireccion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteDireccion(@RequestParam Long id) {
         Direccion direccion = direccionService.findById(id);
         if (direccion != null) {
             direccionService.deleteById(id);

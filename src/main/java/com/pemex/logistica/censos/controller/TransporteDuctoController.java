@@ -25,7 +25,7 @@ public class TransporteDuctoController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllTransportesDucto() {
+    public ResponseEntity<?> getAllTransportesDucto() {
         List<TransporteDucto> transportesDucto = transporteDuctoService.findAll();
         if (transportesDucto.isEmpty()) {
             return new ResponseEntity<>("No existen transportes por ducto", HttpStatus.NOT_FOUND);
@@ -34,7 +34,7 @@ public class TransporteDuctoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getTransporteDuctoById(@RequestParam Long id) {
+    public ResponseEntity<?> getTransporteDuctoById(@RequestParam Long id) {
         TransporteDucto transporteDucto = transporteDuctoService.findById(id);
         if (transporteDucto != null) {
             return new ResponseEntity<>(transporteDucto, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class TransporteDuctoController {
     }
 
     @PostMapping
-    public ResponseEntity saveTransporteDucto(@RequestBody TransporteDucto transporteDucto) {
+    public ResponseEntity<?> saveTransporteDucto(@RequestBody TransporteDucto transporteDucto) {
         TransporteDucto savedTransporteDucto = transporteDuctoService.save(transporteDucto);
         if (savedTransporteDucto != null) {
             return new ResponseEntity<>(savedTransporteDucto, HttpStatus.CREATED);
@@ -54,7 +54,7 @@ public class TransporteDuctoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteTransporteDucto(@RequestParam Long id) {
+    public ResponseEntity<?> deleteTransporteDucto(@RequestParam Long id) {
         TransporteDucto transporteDucto = transporteDuctoService.findById(id);
         if (transporteDucto != null) {
             transporteDuctoService.deleteById(id);

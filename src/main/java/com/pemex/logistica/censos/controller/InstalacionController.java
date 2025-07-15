@@ -25,7 +25,7 @@ public class InstalacionController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllInstalaciones() {
+    public ResponseEntity<?> getAllInstalaciones() {
         List<Instalacion> instalaciones = instalacionService.findAll();
         if (instalaciones.isEmpty()) {
             return new ResponseEntity<>("No existen instalaciones", HttpStatus.NOT_FOUND);
@@ -34,7 +34,7 @@ public class InstalacionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getInstalacionById(@RequestParam Long id) {
+    public ResponseEntity<?> getInstalacionById(@RequestParam Long id) {
         Instalacion instalacion = instalacionService.findById(id);
         if (instalacion != null) {
             return new ResponseEntity<>(instalacion, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class InstalacionController {
     }
 
     @PostMapping
-    public ResponseEntity saveInstalacion(@RequestBody Instalacion instalacion) {
+    public ResponseEntity<?> saveInstalacion(@RequestBody Instalacion instalacion) {
         Instalacion savedInstalacion = instalacionService.save(instalacion);
         if (savedInstalacion != null) {
             return new ResponseEntity<>(savedInstalacion, HttpStatus.CREATED);
@@ -54,7 +54,7 @@ public class InstalacionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteInstalacion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteInstalacion(@RequestParam Long id) {
         Instalacion instalacion = instalacionService.findById(id);
         if (instalacion != null) {
             instalacionService.deleteById(id);

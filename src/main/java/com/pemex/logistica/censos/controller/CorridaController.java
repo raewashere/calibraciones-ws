@@ -24,7 +24,7 @@ public class CorridaController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllCorridas() {
+    public ResponseEntity<?> getAllCorridas() {
         List<Corrida> corridas = corridaService.findAll();
         if (corridas.isEmpty()) {
             return new ResponseEntity<>("No existen corridas", HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class CorridaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getCorridaById(@RequestParam Long id) {
+    public ResponseEntity<?> getCorridaById(@RequestParam Long id) {
         Corrida corrida = corridaService.findById(id);
         if (corrida != null) {
             return new ResponseEntity<>(corrida, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class CorridaController {
     }
 
     @PostMapping
-    public ResponseEntity saveCorrida(@RequestBody Corrida corrida) {
+    public ResponseEntity<?> saveCorrida(@RequestBody Corrida corrida) {
         Corrida savedCorrida = corridaService.save(corrida);
         if (savedCorrida != null) {
             return new ResponseEntity<>(savedCorrida, HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class CorridaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCorrida(@RequestParam Long id) {
+    public ResponseEntity<?> deleteCorrida(@RequestParam Long id) {
         Corrida corrida = corridaService.findById(id);
         if (corrida != null) {
             corridaService.deleteById(id);

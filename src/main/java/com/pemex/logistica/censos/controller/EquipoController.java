@@ -26,7 +26,7 @@ public class EquipoController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllEquipos() {
+    public ResponseEntity<?> getAllEquipos() {
         List<Equipo> equipos = equipoService.findAll();
         if (equipos.isEmpty()) {
             return new ResponseEntity<>("No existen equipos", HttpStatus.NOT_FOUND);
@@ -35,7 +35,7 @@ public class EquipoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getEquipoById(@RequestParam String id) {
+    public ResponseEntity<?> getEquipoById(@RequestParam String id) {
         Equipo equipo = equipoService.findById(id);
         if (equipo != null) {
             return new ResponseEntity<>(equipo, HttpStatus.OK);
@@ -45,7 +45,7 @@ public class EquipoController {
     }
 
     @PostMapping
-    public ResponseEntity saveEquipo(@RequestBody Equipo equipo) {
+    public ResponseEntity<?> saveEquipo(@RequestBody Equipo equipo) {
         Equipo savedEquipo = equipoService.save(equipo);
         if (savedEquipo != null) {
             return new ResponseEntity<>(savedEquipo, HttpStatus.CREATED);
@@ -55,7 +55,7 @@ public class EquipoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteEquipo(@RequestParam String id) {
+    public ResponseEntity<?> deleteEquipo(@RequestParam String id) {
         Equipo equipo = equipoService.findById(id);
         if (equipo != null) {
             equipoService.deleteById(id);

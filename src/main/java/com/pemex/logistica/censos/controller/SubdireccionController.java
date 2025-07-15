@@ -29,7 +29,7 @@ public class SubdireccionController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllSubdirecciones() {
+    public ResponseEntity<?> getAllSubdirecciones() {
         List<Subdireccion> subdirecciones = subdireccionService.findAll();
         if (subdirecciones.isEmpty()) {
             return new ResponseEntity<>("No existen subdirecciones", HttpStatus.NOT_FOUND);
@@ -38,7 +38,7 @@ public class SubdireccionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getSubdireccionById(@RequestParam Long id) {
+    public ResponseEntity<?> getSubdireccionById(@RequestParam Long id) {
         Subdireccion subdireccion = subdireccionService.findById(id);
         if (subdireccion != null) {
             return new ResponseEntity<>(subdireccion, HttpStatus.OK);
@@ -48,7 +48,7 @@ public class SubdireccionController {
     }
 
     @PostMapping
-    public ResponseEntity saveSubdireccion(@RequestBody Subdireccion subdireccion) {
+    public ResponseEntity<?> saveSubdireccion(@RequestBody Subdireccion subdireccion) {
         Subdireccion savedSubdireccion = subdireccionService.save(subdireccion);
         if (savedSubdireccion != null) {
             return new ResponseEntity<>(savedSubdireccion, HttpStatus.CREATED);
@@ -59,7 +59,7 @@ public class SubdireccionController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteSubdireccion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteSubdireccion(@RequestParam Long id) {
         Subdireccion subdireccion = subdireccionService.findById(id);
         if (subdireccion != null) {
             subdireccionService.deleteById(id);

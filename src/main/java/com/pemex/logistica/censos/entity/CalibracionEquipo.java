@@ -37,6 +37,9 @@ public class CalibracionEquipo {
     @Column(name = "certificado_calibracion", nullable = false)
     private String certificado_calibracion;
 
+    @Column(name = "fecha_calibracion", nullable = false)
+    private Date fecha_calibracion;
+
     @Column(name = "fecha_proxima_calibracion", nullable = false)
     private Date fecha_proxima_calibracion;
 

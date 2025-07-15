@@ -26,7 +26,7 @@ public class EntidadFederativaController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllEntidadesFederativas() {
+    public ResponseEntity<?> getAllEntidadesFederativas() {
         List<EntidadFederativa> entidades = entidadFederativaService.findAll();
         if (entidades.isEmpty()) {
             return new ResponseEntity<>("No existen entidades federativas", HttpStatus.NOT_FOUND);
@@ -35,7 +35,7 @@ public class EntidadFederativaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getEntidadFederativaById(@RequestParam Long id) {
+    public ResponseEntity<?> getEntidadFederativaById(@RequestParam Long id) {
         EntidadFederativa entidad = entidadFederativaService.findById(id);
         if (entidad != null) {
             return new ResponseEntity<>(entidad, HttpStatus.OK);
@@ -45,7 +45,7 @@ public class EntidadFederativaController {
     }
 
     @PostMapping
-    public ResponseEntity saveEntidadFederativa(@RequestBody EntidadFederativa entidad) {
+    public ResponseEntity<?> saveEntidadFederativa(@RequestBody EntidadFederativa entidad) {
         EntidadFederativa savedEntidad = entidadFederativaService.save(entidad);
         if (savedEntidad != null) {
             return new ResponseEntity<>(savedEntidad, HttpStatus.CREATED);
@@ -55,7 +55,7 @@ public class EntidadFederativaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteEntidadFederativa(@RequestParam Long id) {
+    public ResponseEntity<?> deleteEntidadFederativa(@RequestParam Long id) {
         EntidadFederativa entidadFederativa = entidadFederativaService.findById(id);
 
         if (entidadFederativa != null) {

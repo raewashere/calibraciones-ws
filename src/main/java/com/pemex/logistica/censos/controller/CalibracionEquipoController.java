@@ -24,7 +24,7 @@ public class CalibracionEquipoController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllCalibraciones() {
+    public ResponseEntity<?> getAllCalibraciones() {
         List<CalibracionEquipo> calibraciones = calibracionEquipoService.findAll();
         if (calibraciones.isEmpty()) {
             return new ResponseEntity<>("No existen calibraciones", HttpStatus.NOT_FOUND);
@@ -33,7 +33,7 @@ public class CalibracionEquipoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getCalibracionById(@RequestParam Long id) {
+    public ResponseEntity<?> getCalibracionById(@RequestParam Long id) {
         CalibracionEquipo calibracion = calibracionEquipoService.findById(id);
         if (calibracion != null) {
             return new ResponseEntity<>(calibracion, HttpStatus.OK);
@@ -43,7 +43,7 @@ public class CalibracionEquipoController {
     }
 
     @PostMapping
-    public ResponseEntity saveCalibracion(@RequestBody CalibracionEquipo calibracion) {
+    public ResponseEntity<?> saveCalibracion(@RequestBody CalibracionEquipo calibracion) {
         CalibracionEquipo savedCalibracion = calibracionEquipoService.save(calibracion);
         if (savedCalibracion != null) {
             return new ResponseEntity<>(savedCalibracion, HttpStatus.CREATED);
@@ -53,7 +53,7 @@ public class CalibracionEquipoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCalibracion(@RequestParam Long id) {
+    public ResponseEntity<?> deleteCalibracion(@RequestParam Long id) {
         CalibracionEquipo calibracion = calibracionEquipoService.findById(id);
         if (calibracion != null) {
             calibracionEquipoService.deleteById(id);

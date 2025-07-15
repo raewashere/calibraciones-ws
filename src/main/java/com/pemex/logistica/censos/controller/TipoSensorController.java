@@ -26,7 +26,7 @@ public class TipoSensorController {
     }
 
     @GetMapping()
-    public ResponseEntity getAllTipoSensores() {
+    public ResponseEntity<?> getAllTipoSensores() {
         List<TipoSensor> tipoSensores = tipoSensorService.findAll();
         if (tipoSensores.isEmpty()) {
             return new ResponseEntity<>("No existen tipos de sensores", HttpStatus.NOT_FOUND);
@@ -35,7 +35,7 @@ public class TipoSensorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getTipoSensorById(@RequestParam Long id) {
+    public ResponseEntity<?> getTipoSensorById(@RequestParam Long id) {
         TipoSensor tipoSensor = tipoSensorService.findById(id);
         if (tipoSensor != null) {
             return new ResponseEntity<>(tipoSensor, HttpStatus.OK);
@@ -45,7 +45,7 @@ public class TipoSensorController {
     }
 
     @PostMapping
-    public ResponseEntity saveTipoSensor(@RequestBody TipoSensor tipoSensor) {
+    public ResponseEntity<?> saveTipoSensor(@RequestBody TipoSensor tipoSensor) {
         TipoSensor savedTipoSensor = tipoSensorService.save(tipoSensor);
         if (savedTipoSensor != null) {
             return new ResponseEntity<>(savedTipoSensor, HttpStatus.CREATED);
@@ -55,7 +55,7 @@ public class TipoSensorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteTipoSensor(@RequestParam Long id) {
+    public ResponseEntity<?> deleteTipoSensor(@RequestParam Long id) {
         TipoSensor tipoSensor = tipoSensorService.findById(id);
         if (tipoSensor != null) {
             tipoSensorService.deleteById(id);
