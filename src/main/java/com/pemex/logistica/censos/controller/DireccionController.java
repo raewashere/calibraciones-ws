@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/api/direcciones")
+@RequestMapping("/api/direccion")
 public class DireccionController {
 
     private final DireccionService direccionService;
