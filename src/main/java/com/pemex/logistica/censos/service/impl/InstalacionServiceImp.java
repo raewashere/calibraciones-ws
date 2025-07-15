@@ -5,7 +5,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.Instalacion;
 import com.pemex.logistica.censos.repository.InstalacionRepository;
 import com.pemex.logistica.censos.service.InstalacionService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class InstalacionServiceImp implements InstalacionService {
 
     // Assuming you have a repository for Instalacion

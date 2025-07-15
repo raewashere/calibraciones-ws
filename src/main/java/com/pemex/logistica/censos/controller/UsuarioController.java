@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/laboratorio_calibracion")
+@RequestMapping("/api/usuario")
 public class UsuarioController {
     
     private final UsuarioService usuarioService;

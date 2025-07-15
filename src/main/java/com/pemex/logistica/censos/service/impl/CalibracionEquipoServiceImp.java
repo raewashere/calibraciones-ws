@@ -1,10 +1,12 @@
 package com.pemex.logistica.censos.service.impl;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 import com.pemex.logistica.censos.entity.CalibracionEquipo;
 import com.pemex.logistica.censos.repository.CalibracionEquipoRepository;
 import com.pemex.logistica.censos.service.CalibracionEquipoService;
 
+@Service
 public class CalibracionEquipoServiceImp implements CalibracionEquipoService {
 
     private final CalibracionEquipoRepository calibracionEquipoRepository;

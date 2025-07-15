@@ -1,11 +1,13 @@
 package com.pemex.logistica.censos.service.impl;
 
 import java.util.List;
-
+import org.springframework.stereotype.Service;
 import com.pemex.logistica.censos.entity.TransporteDucto;
 import com.pemex.logistica.censos.repository.TransporteDuctoRepository;
 import com.pemex.logistica.censos.service.TransporteDuctoService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TransporteDuctoServiceImp implements TransporteDuctoService {
     // Assuming you have a repository for TransporteDucto
     private final TransporteDuctoRepository transporteDuctoRepository;

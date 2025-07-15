@@ -4,8 +4,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.Usuario;
 import com.pemex.logistica.censos.repository.UsuarioRepository;
 import com.pemex.logistica.censos.service.UsuarioService;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class UsuarioServiceImp implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;

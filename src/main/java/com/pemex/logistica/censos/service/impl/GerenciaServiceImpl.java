@@ -5,7 +5,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.Gerencia;
 import com.pemex.logistica.censos.repository.GerenciaRepository;
 import com.pemex.logistica.censos.service.GerenciaService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GerenciaServiceImpl implements GerenciaService {
 
     private final GerenciaRepository gerenciaRepository;

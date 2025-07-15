@@ -3,7 +3,9 @@ package com.pemex.logistica.censos.service.impl;
 import com.pemex.logistica.censos.entity.TipoSensor;
 import com.pemex.logistica.censos.service.TipoSensorService;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TipoSensorServiceImp implements TipoSensorService {
 
     private final com.pemex.logistica.censos.repository.TipoSensorRepository tipoSensorRepository;

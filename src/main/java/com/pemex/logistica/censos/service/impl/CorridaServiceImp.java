@@ -5,7 +5,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.Corrida;
 import com.pemex.logistica.censos.repository.CorridaRepository;
 import com.pemex.logistica.censos.service.CorridaService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CorridaServiceImp implements CorridaService {
 
     private final CorridaRepository corridaRepository;

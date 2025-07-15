@@ -4,7 +4,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.LaboratorioCalibracion;
 import com.pemex.logistica.censos.repository.LaboratorioCalibracionRepository;
 import com.pemex.logistica.censos.service.LaboratorioCalibracionService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LaboratorioCalibracionServiceImp implements LaboratorioCalibracionService {
 
     private final LaboratorioCalibracionRepository laboratorioCalibracionRepository;

@@ -5,7 +5,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.Equipo;
 import com.pemex.logistica.censos.repository.EquipoRepository;
 import com.pemex.logistica.censos.service.EquipoService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EquipoServiceImp implements EquipoService {
 
     private final EquipoRepository equipoRepository;

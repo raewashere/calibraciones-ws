@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.pemex.logistica.censos.repository.EntidadFederativaRespository;
 import com.pemex.logistica.censos.service.EntidadFederativaService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EntidadFederativaServiceImp implements EntidadFederativaService {
 
     private final EntidadFederativaRespository entidadFederativaRepository;

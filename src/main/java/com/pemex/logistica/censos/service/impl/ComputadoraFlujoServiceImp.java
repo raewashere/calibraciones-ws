@@ -5,7 +5,9 @@ import java.util.List;
 import com.pemex.logistica.censos.entity.ComputadoraFlujo;
 import com.pemex.logistica.censos.repository.ComputadoraFlujoRepository;
 import com.pemex.logistica.censos.service.ComputadoraFlujoService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ComputadoraFlujoServiceImp implements ComputadoraFlujoService {
 
     private final ComputadoraFlujoRepository computadoraFlujoRepository;
