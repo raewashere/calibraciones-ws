@@ -1,4 +1,5 @@
 package com.pemex.logistica.censos.entity;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -20,6 +21,7 @@ public class LaboratorioCalibracion {
     public LaboratorioCalibracion() {
         // Default constructor
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_laboratorio_calibracion", nullable = false)
@@ -28,7 +30,7 @@ public class LaboratorioCalibracion {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    //un laboratorio de calibración puede hacer varias calibraciones
+    // un laboratorio de calibración puede hacer varias calibraciones
     @OneToOne(mappedBy = "id_laboratorio_calibracion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private CalibracionEquipo calibracion_equipo;

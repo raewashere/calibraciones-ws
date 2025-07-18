@@ -7,5 +7,4 @@ import com.pemex.logistica.censos.entity.Equipo;
 @Repository
 public interface EquipoRepository extends JpaRepository<Equipo, String> {
 
-    
 }

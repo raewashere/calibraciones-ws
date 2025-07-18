@@ -45,5 +45,5 @@ public class Gerencia {
     @OneToMany(mappedBy = "gerencia", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Instalacion> instalaciones; // List of installations associated with this management unit
-    
+
 }

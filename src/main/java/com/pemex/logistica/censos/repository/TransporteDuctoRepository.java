@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.pemex.logistica.censos.entity.TransporteDucto;
 
 @Repository
-public interface TransporteDuctoRepository extends JpaRepository<TransporteDucto, Long>{
+public interface TransporteDuctoRepository extends JpaRepository<TransporteDucto, Long> {
 
-    
 }

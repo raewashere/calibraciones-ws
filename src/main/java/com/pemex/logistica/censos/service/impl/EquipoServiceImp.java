@@ -35,5 +35,5 @@ public class EquipoServiceImp implements EquipoService {
     public void deleteById(String id) {
         equipoRepository.deleteById(id);
     }
-    
+
 }

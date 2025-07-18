@@ -63,7 +63,7 @@ public class EntidadFederativaController {
             return new ResponseEntity<>("Entidad federativa eliminada con éxito", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("No existe la entidad federativa para eliminar", HttpStatus.NOT_FOUND);
-        }   
+        }
     }
-    
+
 }

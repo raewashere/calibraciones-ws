@@ -58,6 +58,5 @@ public class Usuario {
     private List<CalibracionEquipo> calibraciones;
 
     // Additional fields and methods can be added as needed
-    
 
 }

@@ -20,6 +20,7 @@ public class TipoSensor {
     public TipoSensor() {
         // Default constructor
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tipo_sensor", nullable = false)

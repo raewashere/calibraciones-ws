@@ -34,5 +34,5 @@ public class TransporteDuctoServiceImp implements TransporteDuctoService {
     public void deleteById(Long id) {
         transporteDuctoRepository.deleteById(id); // Replace with actual implementation
     }
-    
+
 }

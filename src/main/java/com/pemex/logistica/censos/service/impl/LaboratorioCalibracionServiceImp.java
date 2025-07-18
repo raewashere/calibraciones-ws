@@ -34,6 +34,5 @@ public class LaboratorioCalibracionServiceImp implements LaboratorioCalibracionS
     public void deleteById(Long id) {
         laboratorioCalibracionRepository.deleteById(id); // Replace with actual implementation
     }
-    
 
 }

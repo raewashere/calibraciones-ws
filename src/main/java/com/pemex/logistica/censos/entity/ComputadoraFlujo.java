@@ -23,7 +23,7 @@ public class ComputadoraFlujo {
 
     public ComputadoraFlujo() {
     }
-    
+
     @Id
     @Column(name = "tag_computadora_flujo", nullable = false)
     private String tag_computadora_flujo; // Unique identifier for the entity
@@ -40,13 +40,13 @@ public class ComputadoraFlujo {
     @Column(name = "vesion_software", nullable = false)
     private String vesion_software;
 
-    //una computadora de flujo pertenece a un transporte ducto
+    // una computadora de flujo pertenece a un transporte ducto
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_transporte_ducto", nullable = false)
     @JsonBackReference
     private TransporteDucto transporte_ducto;
 
-    //Una computadora de flujo tiene varios equipos de medición
+    // Una computadora de flujo tiene varios equipos de medición
     @OneToMany(mappedBy = "computadora_flujo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Equipo> lista_equipos_medicion;

@@ -18,14 +18,14 @@ import lombok.Data;
 @Entity
 @Table(name = "corrida")
 public class Corrida {
-    
+
     public Corrida() {
         // Constructor por defecto
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_corrida", nullable = false)  
+    @Column(name = "id_corrida", nullable = false)
     private Integer id_corrida;
 
     @Column(name = "caudal", nullable = false)
@@ -52,7 +52,7 @@ public class Corrida {
     @Column(name = "repetibilidad", nullable = false)
     private Float repetibilidad;
 
-    //Una corrida pertenece a una calibracion
+    // Una corrida pertenece a una calibracion
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_calibracion", nullable = false)
     @JsonBackReference

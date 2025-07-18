@@ -8,7 +8,10 @@ public interface EntidadFederativaService {
     // Define methods specific to EntidadFederativaService here
     // For example:
     List<EntidadFederativa> findAll();
+
     EntidadFederativa findById(Long id);
+
     EntidadFederativa save(EntidadFederativa entidadFederativa);
+
     void deleteById(Long id);
 }

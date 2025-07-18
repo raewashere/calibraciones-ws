@@ -22,7 +22,7 @@ public class Direccion {
     public Direccion() {
         // Default constructor
     }
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_direccion", nullable = false)
@@ -31,9 +31,9 @@ public class Direccion {
     @Column(name = "nombre_direccion", nullable = false)
     private String nombre_direccion;
 
-    //Una dirección puede tener varias subdirecciones
+    // Una dirección puede tener varias subdirecciones
     @OneToMany(mappedBy = "direccion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Subdireccion> subdirecciones;
-    
+
 }

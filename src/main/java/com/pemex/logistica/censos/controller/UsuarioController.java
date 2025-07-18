@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioController {
-    
+
     private final UsuarioService usuarioService;
 
     public UsuarioController(UsuarioService usuarioService) {
@@ -62,6 +62,5 @@ public class UsuarioController {
             return new ResponseEntity<>("No existe el usuario para eliminar", HttpStatus.NOT_FOUND);
         }
     }
-
 
 }

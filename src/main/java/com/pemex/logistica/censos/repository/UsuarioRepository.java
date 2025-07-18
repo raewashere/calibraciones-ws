@@ -6,5 +6,5 @@ import com.pemex.logistica.censos.entity.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    
+
 }

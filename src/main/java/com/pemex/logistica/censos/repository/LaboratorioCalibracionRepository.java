@@ -11,8 +11,8 @@ public interface LaboratorioCalibracionRepository extends JpaRepository<Laborato
     // For example:
     // List<LaboratorioCalibracion> findByNombre(String nombre);
     // List<LaboratorioCalibracion> findByCiudad(String ciudad);
-    // You can also use Spring Data JPA's query derivation feature to create methods based on naming conventions
+    // You can also use Spring Data JPA's query derivation feature to create methods
+    // based on naming conventions
     // Refer to the Spring Data JPA documentation for more details on query methods.
 
-    
 }

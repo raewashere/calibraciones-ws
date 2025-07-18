@@ -36,5 +36,5 @@ public class InstalacionServiceImp implements InstalacionService {
     public void deleteById(Long id) {
         instalacionRepository.deleteById(id); // Replace with actual implementation
     }
-    
+
 }

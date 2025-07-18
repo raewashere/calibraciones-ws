@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/laboratorio_calibracion")
 public class LaboratorioCalibracionController {
-    
+
     private final LaboratorioCalibracionService laboratorioCalibracionService;
 
     public LaboratorioCalibracionController(LaboratorioCalibracionService laboratorioCalibracionService) {
@@ -48,7 +48,8 @@ public class LaboratorioCalibracionController {
         if (savedLaboratorio != null) {
             return new ResponseEntity<>(savedLaboratorio, HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>("Error al guardar el laboratorio de calibración", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error al guardar el laboratorio de calibración",
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

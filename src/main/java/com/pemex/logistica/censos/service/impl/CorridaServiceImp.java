@@ -35,5 +35,5 @@ public class CorridaServiceImp implements CorridaService {
     public void deleteById(Long id) {
         corridaRepository.deleteById(id); // Replace with actual implementation
     }
-    
+
 }

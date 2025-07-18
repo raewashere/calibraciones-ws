@@ -22,7 +22,7 @@ public class EntidadFederativa {
     public EntidadFederativa() {
         // Default constructor
     }
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_entidad", nullable = false)
@@ -31,7 +31,7 @@ public class EntidadFederativa {
     @Column(name = "nombre_entidad", nullable = false)
     private String nombre_entidad; // Name of the state or entity
 
-    //Una entidad federativa puede tener varias instalaciones
+    // Una entidad federativa puede tener varias instalaciones
     @OneToMany(mappedBy = "entidad_federativa", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Instalacion> instalaciones;

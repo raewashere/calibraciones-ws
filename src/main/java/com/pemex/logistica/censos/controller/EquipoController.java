@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping("/api/equipo")
 public class EquipoController {
-    
+
     private final EquipoService equipoService;
 
     public EquipoController(EquipoService equipoService) {

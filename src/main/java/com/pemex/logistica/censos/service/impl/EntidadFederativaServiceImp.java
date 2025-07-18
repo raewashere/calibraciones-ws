@@ -26,7 +26,8 @@ public class EntidadFederativaServiceImp implements EntidadFederativaService {
     }
 
     @Override
-    public com.pemex.logistica.censos.entity.EntidadFederativa save(com.pemex.logistica.censos.entity.EntidadFederativa entidadFederativa) {
+    public com.pemex.logistica.censos.entity.EntidadFederativa save(
+            com.pemex.logistica.censos.entity.EntidadFederativa entidadFederativa) {
         return entidadFederativaRepository.save(entidadFederativa);
     }
 
@@ -34,5 +35,5 @@ public class EntidadFederativaServiceImp implements EntidadFederativaService {
     public void deleteById(Long id) {
         entidadFederativaRepository.deleteById(id);
     }
-    
+
 }

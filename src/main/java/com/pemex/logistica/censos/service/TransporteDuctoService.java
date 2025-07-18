@@ -8,7 +8,10 @@ public interface TransporteDuctoService {
     // Define methods specific to TransporteDuctoService here
     // For example:
     List<TransporteDucto> findAll();
+
     TransporteDucto findById(Long id);
+
     TransporteDucto save(TransporteDucto transporteDucto);
+
     void deleteById(Long id);
 }

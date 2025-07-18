@@ -20,7 +20,7 @@ public class SubdireccionServiceImp implements SubdireccionService {
     @Override
     public List<Subdireccion> findAll() {
         // Implementation logic to retrieve all Subdireccion entities
-        return subdireccionRepository.findAll(); 
+        return subdireccionRepository.findAll();
     }
 
     @Override
@@ -42,4 +42,4 @@ public class SubdireccionServiceImp implements SubdireccionService {
 
     }
 
-}   
+}

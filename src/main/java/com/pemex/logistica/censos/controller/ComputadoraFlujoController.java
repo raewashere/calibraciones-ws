@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 @RequestMapping("/api/computadora_flujo")
 public class ComputadoraFlujoController {
-    
+
     private final ComputadoraFlujoService computadoraFlujoService;
 
     public ComputadoraFlujoController(ComputadoraFlujoService computadoraFlujoService) {

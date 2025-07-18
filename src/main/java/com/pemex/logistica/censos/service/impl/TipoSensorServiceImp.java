@@ -33,5 +33,5 @@ public class TipoSensorServiceImp implements TipoSensorService {
     public void deleteById(Long id) {
         tipoSensorRepository.deleteById(id); // Replace with actual implementation
     }
-    
+
 }

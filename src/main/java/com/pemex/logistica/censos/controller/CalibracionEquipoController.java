@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/calibracion_equipo")
 public class CalibracionEquipoController {
-    
+
     private final CalibracionEquipoService calibracionEquipoService;
 
     public CalibracionEquipoController(CalibracionEquipoService calibracionEquipoService) {

@@ -8,7 +8,10 @@ public interface TipoSensorService {
     // Define methods specific to TipoSensorService here
     // For example:
     List<TipoSensor> findAll();
+
     TipoSensor findById(Long id);
+
     TipoSensor save(TipoSensor tipoSensor);
+
     void deleteById(Long id);
 }

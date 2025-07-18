@@ -24,11 +24,12 @@ public class Equipo {
     public Equipo() {
         // Default constructor
     }
+
     @Id
     @Column(name = "tag_equipo", nullable = false)
     private String tag_equipo;
 
-    @Column(name ="tipo_medicion", nullable = false)
+    @Column(name = "tipo_medicion", nullable = false)
     private String tipo_medicion;
 
     @Column(name = "estado", nullable = false)
@@ -55,24 +56,24 @@ public class Equipo {
     @Column(name = "magnitud_incertidumbre", nullable = false)
     private String magnitud_incertidumbre;
 
-    //Un equipo de medicion esta conectadad a una computadora de flujo
+    // Un equipo de medicion esta conectadad a una computadora de flujo
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_computadora_flujo", nullable = true)
     @JsonBackReference
     private ComputadoraFlujo computadora_flujo;
 
-    //Un equipo de medicion es un tipo de sensor
+    // Un equipo de medicion es un tipo de sensor
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_sensor", nullable = false)
     @JsonBackReference
     private TipoSensor tipo_sensor;
 
-    //Un equipo de medicion tiene multiples calibraciones
+    // Un equipo de medicion tiene multiples calibraciones
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<CalibracionEquipo> lista_calibraciones; 
+    private List<CalibracionEquipo> lista_calibraciones;
 
-    //Un equipo de medicion pertenece a un transporte ducto
+    // Un equipo de medicion pertenece a un transporte ducto
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_transporte_ducto", nullable = true)
     @JsonBackReference

@@ -11,7 +11,8 @@ public interface GerenciaRepository extends JpaRepository<Gerencia, Long> {
     // For example:
     // List<Gerencia> findByNombre(String nombre);
     // List<Gerencia> findByCodigo(String codigo);
-    // You can also use Spring Data JPA's query derivation feature to create methods based on naming conventions
+    // You can also use Spring Data JPA's query derivation feature to create methods
+    // based on naming conventions
     // Refer to the Spring Data JPA documentation for more details on query methods.
-    
+
 }

@@ -62,5 +62,5 @@ public class GerenciaController {
             return new ResponseEntity<>("No existe la gerencia para eliminar", HttpStatus.NOT_FOUND);
         }
     }
-    
+
 }

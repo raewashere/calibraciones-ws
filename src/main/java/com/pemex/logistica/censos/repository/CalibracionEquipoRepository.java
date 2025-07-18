@@ -1,6 +1,5 @@
 package com.pemex.logistica.censos.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +12,8 @@ public interface CalibracionEquipoRepository extends JpaRepository<CalibracionEq
     // For example:
     // List<CalibracionEquipo> findByEquipoId(Long equipoId);
     // List<CalibracionEquipo> findByFechaBetween(Date startDate, Date endDate);
-    // You can also use Spring Data JPA's query derivation feature to create methods based on naming conventions
+    // You can also use Spring Data JPA's query derivation feature to create methods
+    // based on naming conventions
     // Refer to the Spring Data JPA documentation for more details on query methods.
 
 }

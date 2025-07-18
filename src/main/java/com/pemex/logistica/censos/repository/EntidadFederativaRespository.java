@@ -11,7 +11,8 @@ public interface EntidadFederativaRespository extends JpaRepository<EntidadFeder
     // For example:
     // List<EntidadFederativa> findByNombre(String nombre);
     // List<EntidadFederativa> findByCodigo(String codigo);
-    // You can also use Spring Data JPA's query derivation feature to create methods based on naming conventions
+    // You can also use Spring Data JPA's query derivation feature to create methods
+    // based on naming conventions
     // Refer to the Spring Data JPA documentation for more details on query methods.
-    
+
 }

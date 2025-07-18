@@ -7,14 +7,16 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 
-public class SubdireccionLogistica  extends Subdireccion {
+public class SubdireccionLogistica extends Subdireccion {
 
     public SubdireccionLogistica() {
         // Default constructor
     }
 
-    // Additional fields and methods specific to SubdireccionLogistica can be added here
-    // For example, if there are specific attributes or behaviors for the logistics subdirection,
+    // Additional fields and methods specific to SubdireccionLogistica can be added
+    // here
+    // For example, if there are specific attributes or behaviors for the logistics
+    // subdirection,
     // they can be defined in this class.
 
     // Example field (uncomment and modify as needed):
@@ -24,5 +26,5 @@ public class SubdireccionLogistica  extends Subdireccion {
     @OneToMany(mappedBy = "subdireccion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Gerencia> gerencias;
-    
+
 }

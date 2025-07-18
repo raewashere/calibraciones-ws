@@ -8,5 +8,5 @@ import com.pemex.logistica.censos.entity.TipoSensor;
 public interface TipoSensorRepository extends JpaRepository<TipoSensor, Long> {
 
     // Additional query methods can be defined here if needed
-    
+
 }

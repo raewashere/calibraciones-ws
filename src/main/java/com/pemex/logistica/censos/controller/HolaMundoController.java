@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class HolaMundoController {
 
     @GetMapping("/hello")
-        public String helloWorld() {
-            return "Hello World from Spring Boot!";
-        }
-    
-        @GetMapping("/")
-        public String index() {
-            return "index.html";
-        }
-    
-        @GetMapping("/hola")
-            public String holaMundo() {
-            return "Hola Mundo desde Spring Boot!";
-        }
+    public String helloWorld() {
+        return "Hello World from Spring Boot!";
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "index.html";
+    }
+
+    @GetMapping("/hola")
+    public String holaMundo() {
+        return "Hola Mundo desde Spring Boot!";
+    }
 }

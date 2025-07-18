@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping("/api/tipo_sensor")
 public class TipoSensorController {
-    
+
     private final TipoSensorService tipoSensorService;
 
     public TipoSensorController(TipoSensorService tipoSensorService) {

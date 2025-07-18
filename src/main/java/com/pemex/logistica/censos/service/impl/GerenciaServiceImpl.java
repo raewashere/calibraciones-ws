@@ -34,10 +34,10 @@ public class GerenciaServiceImpl implements GerenciaService {
         // Implementation logic here
         return gerenciaRepository.save(gerencia); // Replace with actual implementation
     }
+
     @Override
     public void deleteById(Long id) {
         gerenciaRepository.deleteById(id); // Replace with actual implementation
     }
 
-    
 }

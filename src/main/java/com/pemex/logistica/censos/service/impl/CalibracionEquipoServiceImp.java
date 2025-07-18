@@ -34,5 +34,5 @@ public class CalibracionEquipoServiceImp implements CalibracionEquipoService {
     public void deleteById(Long id) {
         calibracionEquipoRepository.deleteById(id);
     }
-    
+
 }

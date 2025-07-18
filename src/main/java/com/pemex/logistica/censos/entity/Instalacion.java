@@ -23,8 +23,8 @@ import lombok.Data;
 @Entity
 @Table(name = "instalacion")
 public class Instalacion {
-    
-    public Instalacion(){
+
+    public Instalacion() {
 
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/corrida")
 public class CorridaController {
-    
+
     private final CorridaService corridaService;
 
     public CorridaController(CorridaService corridaService) {

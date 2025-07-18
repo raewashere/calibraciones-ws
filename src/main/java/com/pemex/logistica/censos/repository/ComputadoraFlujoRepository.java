@@ -11,8 +11,8 @@ public interface ComputadoraFlujoRepository extends JpaRepository<ComputadoraFlu
     // For example:
     // List<ComputadoraFlujo> findByEquipoId(Long equipoId);
     // List<ComputadoraFlujo> findByFechaBetween(Date startDate, Date endDate);
-    // You can also use Spring Data JPA's query derivation feature to create methods based on naming conventions
+    // You can also use Spring Data JPA's query derivation feature to create methods
+    // based on naming conventions
     // Refer to the Spring Data JPA documentation for more details on query methods.
 
-    
 }

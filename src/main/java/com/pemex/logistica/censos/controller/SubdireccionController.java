@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @RestController
 @RequestMapping("/api/subdireccion")
 public class SubdireccionController {
@@ -57,7 +55,6 @@ public class SubdireccionController {
         }
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteSubdireccion(@PathVariable Long id) {
         Subdireccion subdireccion = subdireccionService.findById(id);
@@ -67,7 +64,7 @@ public class SubdireccionController {
         } else {
             return new ResponseEntity<>("No existe la subdireccion para eliminar", HttpStatus.NOT_FOUND);
         }
-        
+
     }
-    
+
 }

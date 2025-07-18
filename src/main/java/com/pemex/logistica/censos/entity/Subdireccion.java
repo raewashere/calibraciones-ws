@@ -36,17 +36,15 @@ public class Subdireccion {
     @Column(name = "nombre_subdireccion", nullable = false)
     private String nombre_subdireccion;
 
-
     // Una subdirección pertenece a una dirección
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_direccion", nullable = false)
     @JsonBackReference
     private Direccion direccion;
-    
 
     // Una subdirección puede tener varias instalaciones
     @OneToMany(mappedBy = "subdireccion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Instalacion> instalaciones;
-    
+
 }

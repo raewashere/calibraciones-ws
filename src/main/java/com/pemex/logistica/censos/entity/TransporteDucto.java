@@ -22,8 +22,8 @@ import lombok.Data;
 @Entity
 @Table(name = "transporte_ducto")
 public class TransporteDucto {
-    
-    public TransporteDucto(){
+
+    public TransporteDucto() {
 
     }
 
@@ -43,12 +43,12 @@ public class TransporteDucto {
     @JsonBackReference
     private Instalacion instalacion;
 
-    //Un trasporte ducto puede tener una o varias computadoras de flujo
+    // Un trasporte ducto puede tener una o varias computadoras de flujo
     @OneToMany(mappedBy = "transporte_ducto", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<ComputadoraFlujo> lista_computadora_flujo;
 
-    //Un transporte ducto tiene varios equipos de medición
+    // Un transporte ducto tiene varios equipos de medición
     @OneToMany(mappedBy = "transporte_ducto", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Equipo> lista_equipo_medicion;

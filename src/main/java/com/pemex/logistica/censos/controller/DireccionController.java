@@ -16,14 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @RestController
 @RequestMapping("/api/direccion")
 public class DireccionController {
 
     private final DireccionService direccionService;
-
 
     public DireccionController(DireccionService direccionService) {
         this.direccionService = direccionService;
@@ -35,7 +32,7 @@ public class DireccionController {
         List<Direccion> direcciones = direccionService.findAll();
         if (direcciones.isEmpty()) {
             return new ResponseEntity<>("No existen direcciones", HttpStatus.NOT_FOUND);
-        }   
+        }
         return new ResponseEntity<>(direcciones, HttpStatus.OK);
 
     }
@@ -71,9 +68,5 @@ public class DireccionController {
             return new ResponseEntity<>("No existe la direccion", HttpStatus.NOT_FOUND);
         }
     }
-    
 
-    
-    
-    
 }

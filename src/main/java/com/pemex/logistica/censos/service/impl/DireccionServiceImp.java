@@ -9,7 +9,7 @@ import com.pemex.logistica.censos.repository.DireccionRepository;
 import com.pemex.logistica.censos.service.DireccionService;
 
 @Service
-public class DireccionServiceImp  implements DireccionService {
+public class DireccionServiceImp implements DireccionService {
 
     private final DireccionRepository direccionRepository;
 
@@ -21,7 +21,7 @@ public class DireccionServiceImp  implements DireccionService {
     @Override
     public List<Direccion> findAll() {
         // Implementation logic to retrieve all Direccion entities
-        return direccionRepository.findAll(); 
+        return direccionRepository.findAll();
     }
 
     @Override
@@ -42,5 +42,5 @@ public class DireccionServiceImp  implements DireccionService {
         // Replace with actual implementation
         direccionRepository.deleteById(id); // Replace with actual implementation
     }
-    
+
 }
