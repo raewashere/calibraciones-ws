@@ -28,8 +28,11 @@ public class Corrida {
     @Column(name = "id_corrida", nullable = false)
     private Integer id_corrida;
 
-    @Column(name = "caudal", nullable = false)
-    private Float caudal;
+    @Column(name = "caudal_m3_hr", nullable = false)
+    private Float caudal_m3_hr;
+
+    @Column(name = "caudal_bbl_hr", nullable = false)
+    private Float caudal_bbl_hr;
 
     @Column(name = "temperatura", nullable = false)
     private Float temperatura;

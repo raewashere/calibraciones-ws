@@ -1,5 +1,7 @@
 package com.pemex.logistica.censos.entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -8,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -33,5 +36,6 @@ public class LaboratorioCalibracion {
     // un laboratorio de calibración puede hacer varias calibraciones
     @OneToOne(mappedBy = "id_laboratorio_calibracion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private CalibracionEquipo calibracion_equipo;
+    private List<CalibracionEquipo> calibraciones;
+
 }

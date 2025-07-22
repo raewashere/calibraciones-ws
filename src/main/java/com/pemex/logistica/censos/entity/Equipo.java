@@ -51,7 +51,7 @@ public class Equipo {
     private Integer intervalo_verificacion;
 
     @Column(name = "incertidumbre", nullable = false)
-    private Float incertidumbre;
+    private Double incertidumbre;
 
     @Column(name = "magnitud_incertidumbre", nullable = false)
     private String magnitud_incertidumbre;

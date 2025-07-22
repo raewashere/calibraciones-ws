@@ -32,14 +32,14 @@ public class Usuario {
     @Column(name = "correo_electronico", nullable = false)
     private String correo_electronico;
 
-    @Column(name = "no_serie", nullable = false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "apellido_paterno", nullable = false)
-    private String apellido_paterno;
+    @Column(name = "primer_apellido", nullable = false)
+    private String primer_apellido;
 
-    @Column(name = "apellido_materno", nullable = true)
-    private String apellido_materno;
+    @Column(name = "segundo_apellido", nullable = true)
+    private String segundo_apellido;
 
     @Column(name = "telefono", nullable = true)
     private String telefono;
@@ -57,6 +57,7 @@ public class Usuario {
     @JsonManagedReference
     private List<CalibracionEquipo> calibraciones;
 
+    
     // Additional fields and methods can be added as needed
 
 }
