@@ -34,7 +34,7 @@ public class LaboratorioCalibracion {
     private String nombre;
 
     // un laboratorio de calibración puede hacer varias calibraciones
-    @OneToOne(mappedBy = "id_laboratorio_calibracion", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "id_laboratorio_calibracion", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<CalibracionEquipo> calibraciones;
 

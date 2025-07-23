@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -56,25 +57,27 @@ public class CalibracionEquipo {
     private String documento_certificado;
 
     // una calibración de equipo pertenece a un laboratorio de calibración
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_laboratorio_calibracion", nullable = false)
     @JsonBackReference
     private LaboratorioCalibracion id_laboratorio_calibracion;
 
     // Una calibración de equipo pertenece a un equipo
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_equipo", nullable = false)
     @JsonBackReference
     private Equipo equipo;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario", nullable = true)
+    @JsonBackReference
+    private Usuario usuario;    
 
     // Una calibración de equipo pertenece a varias corridas
     @OneToMany(mappedBy = "calibracion_equipo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Corrida> lista_corridas;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario", nullable = true)
-    @JsonBackReference
-    private Usuario usuario;
+
 
 }

@@ -68,14 +68,16 @@ public class Equipo {
     @JsonBackReference
     private TipoSensor tipo_sensor;
 
-    // Un equipo de medicion tiene multiples calibraciones
-    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<CalibracionEquipo> lista_calibraciones;
-
     // Un equipo de medicion pertenece a un transporte ducto
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_transporte_ducto", nullable = true)
     @JsonBackReference
     private TransporteDucto transporte_ducto;
+
+    // Un equipo de medicion tiene multiples calibraciones
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<CalibracionEquipo> lista_calibraciones;
+
+
 }

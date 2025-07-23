@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -37,7 +38,7 @@ public class Gerencia {
     private String nombre_gerencia;
 
     // Una gerencia pertenece a una subdirección
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_subdireccion", nullable = false)
     @JsonBackReference
     private Subdireccion subdireccion;
