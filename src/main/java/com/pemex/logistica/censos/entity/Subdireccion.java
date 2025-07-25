@@ -16,7 +16,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -40,6 +40,7 @@ public class Subdireccion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_direccion", nullable = false)
     @JsonBackReference
+    @NotNull
     private Direccion direccion;
 
     // Una subdirección puede tener varias instalaciones

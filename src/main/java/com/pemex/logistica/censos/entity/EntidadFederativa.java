@@ -25,11 +25,11 @@ public class EntidadFederativa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_entidad", nullable = false)
-    private Integer id_entidad; // Unique identifier for the entity
+    @Column(name = "id_entidad_federativa", nullable = false)
+    private Integer id_entidad_federativa; // Unique identifier for the entity
 
-    @Column(name = "nombre_entidad", nullable = false)
-    private String nombre_entidad; // Name of the state or entity
+    @Column(name = "nombre_entidad_federativa", nullable = false)
+    private String nombre_entidad_federativa; // Name of the state or entity
 
     // Una entidad federativa puede tener varias instalaciones
     @OneToMany(mappedBy = "entidad_federativa", cascade = CascadeType.ALL, orphanRemoval = true)

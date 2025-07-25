@@ -3,6 +3,8 @@ package com.pemex.logistica.censos.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pemex.logistica.censos.dto.SubdireccionDTO;
+import com.pemex.logistica.censos.entity.Direccion;
 import com.pemex.logistica.censos.entity.Subdireccion;
 import com.pemex.logistica.censos.service.SubdireccionService;
 
@@ -46,12 +48,25 @@ public class SubdireccionController {
     }
 
     @PostMapping
-    public ResponseEntity<?> saveSubdireccion(@RequestBody Subdireccion subdireccion) {
-        Subdireccion savedSubdireccion = subdireccionService.save(subdireccion);
-        if (savedSubdireccion != null) {
-            return new ResponseEntity<>(savedSubdireccion, HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Error al guardar la subdireccion", HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<?> saveSubdireccion(@RequestBody SubdireccionDTO subdireccionDTO) {
+        try {
+            // Crear Subdireccion a partir del DTO
+            Subdireccion subdireccion = new Subdireccion();
+            subdireccion.setNombre_subdireccion(subdireccionDTO.getNombre_subdireccion());
+
+            // Asociar la dirección por ID (sin necesidad de buscar en la BD si ya sabes que
+            // existe)
+            Direccion direccion = new Direccion();
+            direccion.setId_direccion(subdireccionDTO.getId_direccion());
+            subdireccion.setDireccion(direccion);
+
+            // Guardar usando el servicio
+            Subdireccion saved = subdireccionService.save(subdireccion);
+            return new ResponseEntity<>(saved, HttpStatus.CREATED);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al guardar la subdirección: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
