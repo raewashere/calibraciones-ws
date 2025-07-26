@@ -2,7 +2,10 @@ package com.pemex.logistica.censos.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.pemex.logistica.censos.dto.UsuarioDTO;
 import com.pemex.logistica.censos.entity.Usuario;
+import com.pemex.logistica.censos.mapper.UsuarioMapper;
 import com.pemex.logistica.censos.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -43,10 +46,23 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<?> saveUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> saveUsuario(@RequestBody UsuarioDTO dto) {
+        if (dto == null) {
+            return new ResponseEntity<>("Datos de usuario inválidos", HttpStatus.BAD_REQUEST);
+        }
+        if (dto.getCorreo_electronico() == null || dto.getNombre() == null) {
+            return new ResponseEntity<>("Correo electrónico y nombre son obligatorios", HttpStatus.BAD_REQUEST);
+        }
+        if (usuarioService.existsByCorreoElectronico(dto.getCorreo_electronico())) {
+            return new ResponseEntity<>("El correo electrónico ya está en uso", HttpStatus.CONFLICT);
+        }
+        if (dto.getRol() == null) {
+            dto.setRol("usuario"); // Asignar rol por defecto si no se proporciona
+        }
+        Usuario usuario = UsuarioMapper.toEntity(dto);
         Usuario savedUsuario = usuarioService.save(usuario);
         if (savedUsuario != null) {
-            return new ResponseEntity<>(savedUsuario, HttpStatus.CREATED);
+            return new ResponseEntity<>(UsuarioMapper.toDTO(savedUsuario), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>("Error al guardar el usuario", HttpStatus.INTERNAL_SERVER_ERROR);
         }

@@ -35,4 +35,10 @@ public class UsuarioServiceImp implements UsuarioService {
     public void deleteById(Long id) {
         usuarioRepository.deleteById(id); // Replace with actual implementation
     }
+
+    @Override
+    public boolean existsByCorreoElectronico(String correoElectronico) {
+        return usuarioRepository.findAll().stream()
+                .anyMatch(usuario -> usuario.getCorreo_electronico().equals(correoElectronico));
+    }
 }

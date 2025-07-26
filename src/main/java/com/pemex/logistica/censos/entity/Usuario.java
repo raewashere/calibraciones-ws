@@ -44,9 +44,6 @@ public class Usuario {
     @Column(name = "telefono", nullable = true)
     private String telefono;
 
-    @Column(name = "password", nullable = false)
-    private String password;
-
     @Column(name = "rol", nullable = false)
     private String rol; // e.g., "ADMIN", "USER", etc.
 
@@ -56,8 +53,5 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<CalibracionEquipo> calibraciones;
-
-    
-    // Additional fields and methods can be added as needed
 
 }
