@@ -3,6 +3,7 @@ package com.pemex.logistica.censos.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pemex.logistica.censos.dto.MensajeDTO;
 import com.pemex.logistica.censos.dto.UsuarioDTO;
 import com.pemex.logistica.censos.entity.Usuario;
 import com.pemex.logistica.censos.mapper.UsuarioMapper;
@@ -28,7 +29,10 @@ public class UsuarioController {
 
     @GetMapping()
     public ResponseEntity<?> getAllUsuarios() {
-        List<Usuario> usuarios = usuarioService.findAll();
+        List<UsuarioDTO> usuarios = usuarioService.findAll().stream()
+                .map(UsuarioMapper::toDTO)
+                .toList();
+
         if (usuarios.isEmpty()) {
             return new ResponseEntity<>("No existen usuarios", HttpStatus.NOT_FOUND);
         }
@@ -37,7 +41,7 @@ public class UsuarioController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUsuarioById(@PathVariable Long id) {
-        Usuario usuario = usuarioService.findById(id);
+        UsuarioDTO usuario = UsuarioMapper.toDTO(usuarioService.findById(id));
         if (usuario != null) {
             return new ResponseEntity<>(usuario, HttpStatus.OK);
         } else {
@@ -79,4 +83,15 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/verificacion/{id}")
+    public ResponseEntity<?> verificaUsuarioAdmin(@PathVariable Long id) {
+        if (id == null) {
+            return new ResponseEntity<>("Datos de usuario inválidos", HttpStatus.BAD_REQUEST);
+        }
+        boolean verificado = usuarioService.verificaUsuarioAdmin(id);
+        if (!verificado) {
+            return new ResponseEntity<>(new MensajeDTO("El usuario no se verificó"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(new MensajeDTO("El usuario se verificó correctamente"), HttpStatus.OK);
+    }
 }

@@ -41,4 +41,13 @@ public class UsuarioServiceImp implements UsuarioService {
         return usuarioRepository.findAll().stream()
                 .anyMatch(usuario -> usuario.getCorreo_electronico().equals(correoElectronico));
     }
-}
+
+    @Override
+    public boolean verificaUsuarioAdmin(Long id) {
+        Usuario usuarioVerifica = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No existe Subdirección con ID: " + id));
+        usuarioVerifica.setVerificacion_admin(true);
+        usuarioRepository.save(usuarioVerifica);
+        return true;
+    }
+}   

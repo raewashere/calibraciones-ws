@@ -15,4 +15,6 @@ public interface UsuarioService {
     void deleteById(Long id);
 
     boolean existsByCorreoElectronico(String correoElectronico);
+
+    boolean verificaUsuarioAdmin(Long id);
 }
