@@ -61,4 +61,8 @@ public class Instalacion {
     @JsonManagedReference
     private List<TransporteDucto> lista_transporte_ducto;
 
+    @OneToMany(mappedBy = "id_usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Usuario> usuarios;
+
 }
